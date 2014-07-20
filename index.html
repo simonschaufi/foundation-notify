@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ZURB Foundation Notify</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Notifications for ZURB Foundation">
+	<meta name="author" content="Simon Schaufelberger">
+
+
+	<!--<link rel="stylesheet" type="text/css" href="http://cdn.foundation5.zurb.com/foundation.css">-->
+	<link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.1/css/foundation.min.css">
+	<link rel="stylesheet" type="text/css" href="css/demo.css"><!-- just for this demo website -->
+	<link rel="stylesheet" type="text/css" href="css/prettify.css">
+	
+	<link rel="stylesheet" type="text/css" href="css/foundation-notify.css">
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.1/js/vendor/modernizr.js"></script>
+</head>
+<body>
+
+<div class="notifications top-right"></div>
+<div class="notifications bottom-right"></div>
+<div class="notifications top-left"></div>
+<div class="notifications bottom-left"></div>
+<div class="notifications top-center"></div>
+
+<div class="row">
+	<div class="large-3 columns">
+	</div>
+	<div class="large-9 columns">
+		<ul class="inline-list right">
+			<li><a href="#">Github Source</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="row">
+	<div class="large-9 push-3 columns">
+		<h1>ZURB Foundation Notify</h1>
+		<p>Foundation offers beautiful notifications. Unfortunately they don't offer a nice way to customize them very 
+			well (like positioning, automatic closing...). That is why I decided to create a little plugin for that.</p>
+		<h4>HTML: <small>(Notifications will be appended inside)</small></h4>
+		<pre class='prettyprint'>
+&lt;div class="notifications top-right">&lt;/div>
+</pre>
+		<h5>Position Options:</h5>
+
+		<p>Notifications supports four different position classes, only if utilizing the css file provided.</p>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Position</th>
+					<th>Class Name</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>Top Left</td>
+					<td>top-left</td>
+					<td>Notifications will appear fixed in the top-left corner</td>
+				</tr>
+				<tr>
+					<td>Top Right</td>
+					<td>top-right</td>
+					<td>Notifications will appear fixed in the top-right corner</td>
+				</tr>
+				<tr>
+					<td>Bottom Left</td>
+					<td>bottom-left</td>
+					<td>Notifications will appear fixed in the bottom-left corner</td>
+				</tr>
+				<tr>
+					<td>Bottom Right</td>
+					<td>bottom-right</td>
+					<td>Notifications will appear fixed in the bottom-right corner</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<h4>Js:</h4>
+		
+		<pre class='prettyprint'>
+$('.top-right').notify({
+	message: {text: 'Aw yeah, It works!'}
+}).show(); // for the ones that aren't closable and don't fade out there is a .hide() function.
+</pre>
+		<h5>Options:</h5>
+
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>type</th>
+					<th>default</th>
+					<th>description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>type</td>
+					<td>string</td>
+					<td>...</td>
+					<td>Alert style (secondary, alert, success...)</td>
+				</tr>
+				<tr>
+					<td>closable</td>
+					<td>boolean</td>
+					<td>true</td>
+					<td>Allow alert to be closable through a close icon.</td>
+				</tr>
+				<tr>
+					<td>transition</td>
+					<td>string</td>
+					<td>'fade'</td>
+					<td>Alert transition, pretty sure only <kbd>fade</kbd> is supported, you can try others if you wish.</td>
+				</tr>
+				<tr>
+					<td>fadeOut</td>
+					<td>object</td>
+					<td>...</td>
+					<td>
+						Fade alert out after a certain delay (<em>in ms</em>)<br>
+						Object structure: <kbd>fadeOut: {enabled: true, delay: 3000}</kbd>
+					</td>
+				</tr>
+				<tr>
+					<td>message</td>
+					<td>object</td>
+					<td>...</td>
+					<td>
+						Text to show on alert, you can use either html or text. HTML will override text.<br>
+						Object structure: <kbd>message: {html: false, text: 'This is a message.'}</kbd>
+					</td>
+				</tr>
+				<tr>
+					<td>onClose</td>
+					<td>function</td>
+					<td>...</td>
+					<td>Called before alert closes.</td>
+				</tr>
+				<tr>
+					<td>onClosed</td>
+					<td>function</td>
+					<td>...</td>
+					<td>Called after alert closes.</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="large-3 pull-9 columns">
+		<button id="show-notification">Click for a random notification</button>
+	</div>
+</div>
+
+<footer class="row">
+	<div class="large-12 columns">
+		<hr/>
+		<div class="row">
+			<div class="large-6 columns">
+				<p>&copy; Copyright 2014.</p>
+			</div>
+			<div class="large-6 columns">
+				<ul class="inline-list right">
+					<li><a href="#">Section 1</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.1/js/vendor/jquery.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.1/js/vendor/fastclick.js"></script>
+<!--<script src="//cdn.foundation5.zurb.com/foundation.js"></script>-->
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/foundation/5.3.1/js/foundation.min.js"></script>
+
+<script type="text/javascript" src="js/prettify.js"></script>
+
+<script type="text/javascript" src="js/foundation-notify.js"></script>
+<script>
+	jQuery(document).foundation();
+
+	// Pretty print
+	window.prettyPrint && prettyPrint();
+
+	var appearances = ['', 'success', 'warning', 'info', 'alert', 'secondary'];
+	var positions = [/*'top-left', */'top-right', 'bottom-left', 'bottom-right']; // top-left disabled for UI reasons
+	// from http://www.thetoptens.com/random-sentences/
+	var messages = [
+		'I am so blue I\'m greener than purple',
+		'Banana error.',
+		'I stepped on a Corn Flake, now I\'m a Cereal Killer',
+		'Llamas eat sexy paper clips',
+		'Look, a distraction!',
+		'What do you think about the magical yellow unicorn who dances on the rainbow with a spoonful of blue cheese dressing?',
+		'A hotdog on a bridge',
+		'My nose is a communist.',
+		'My world is where everybody is a pony and we all eat rainbows and poop butterflies',
+		'Everyday a grape licks a friendly cow',
+		'When life gives you lemons, chuck them at people you hate',
+		'No sheep is quite as crooked as a bed',
+		'On a scale from one to ten what is your favourite colour of the alphabet.',
+		'Are you a fan of delicious flavor?',
+		'Thank you for noticing this notice, your noticing has been noticed',
+		'Nom nom nom nom nom!',
+		'I like pie'
+	];
+	jQuery('#show-notification').click(function (e) {
+		var message = messages[Math.floor(Math.random() * messages.length)];
+		var position = positions[Math.floor(Math.random() * positions.length)];
+		var appearance = appearances[Math.floor(Math.random() * appearances.length)];
+		
+		jQuery('.' + position).notify({
+			message: {
+				text: message
+			},
+			fadeOut: {
+				enabled: true,
+				delay: 3000
+			},
+			type: appearance
+		}).show();
+	});
+</script>
+</body>
+</html>
